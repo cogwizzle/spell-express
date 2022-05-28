@@ -1,4 +1,4 @@
 module.exports = (routeName, body = `res.send('DELETE ${routeName}')`) =>
-  `router.delete('/', (req, res) => {
+  `router.delete('/id', (req, res) => {
   ${body}
 })`

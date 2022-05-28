@@ -1,4 +1,4 @@
 module.exports = (routeName, body = `res.send('PUT ${routeName}')`) =>
-  `router.put('/', (req, res) => {
+  `router.put('/:id', (req, res) => {
   ${body}
 })`
