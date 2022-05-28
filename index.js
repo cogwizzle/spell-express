@@ -8,10 +8,11 @@ module.exports = (spellbook) => {
   spellbook.generatePost = generatePost
   spellbook.generateGet = generateGet
   spellbook.generateDelete = generateDelete
-  spellbook.generateCrud = (routeName) => {
-    spellbook.generatePut(routeName)
-    spellbook.generatePost(routeName)
-    spellbook.generateGet(routeName)
-    spellbook.generateDelete(routeName)
-  }
+  spellbook.generateCrud = (routeName) =>
+    [
+      spellbook.generatePut(routeName),
+      spellbook.generatePost(routeName),
+      spellbook.generateGet(routeName),
+      spellbook.generateDelete(routeName),
+    ].join('\n')
 }
