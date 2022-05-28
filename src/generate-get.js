@@ -1,4 +1,4 @@
 module.exports = (routeName, body = `res.send('GET ${routeName}')`) =>
-  `app.get('/${routeName}', (req, res) => {
+  `router.get('/', (req, res) => {
   ${body}
 })`

@@ -9,10 +9,15 @@ module.exports = (spellbook) => {
   spellbook.generateGet = generateGet
   spellbook.generateDelete = generateDelete
   spellbook.generateCrud = (routeName) =>
-    [
-      spellbook.generatePut(routeName),
-      spellbook.generatePost(routeName),
-      spellbook.generateGet(routeName),
-      spellbook.generateDelete(routeName),
-    ].join('\n')
+    `const express = require("express");
+const router = express.Router();
+${[
+  spellbook.generatePut(routeName),
+  spellbook.generatePost(routeName),
+  spellbook.generateGet(routeName),
+  spellbook.generateDelete(routeName),
+].join('\n')}
+
+module.exports = router;
+`
 }
